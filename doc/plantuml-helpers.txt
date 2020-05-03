@@ -40,9 +40,10 @@ That would require the specification like so:
 
 Class2 "1..n" --* "1" Class1
 
-The Command *:MirrorAssoc* does exactly that. To mirror the association 
-place the cursor in the line where the association is defined and invoke the 
-command :MirrorAssoc.
+The Command *:MirrorAssoc* does exactly that - it swaps the sides of the
+association and preserves the association attributes. 
+To mirror the association place the cursor in the line where the association 
+is defined and invoke the command :MirrorAssoc.
 Invoking the :MirrorAssoc again reverses the operation.
 
 Supported association types:
