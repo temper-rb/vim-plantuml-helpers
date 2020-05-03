@@ -17,7 +17,7 @@ Then in vim invoke
 ```
 ### Via git clone
 ```
-cd ~/.vim
+cd ~/.vim/<your_plugin_directory>
 git clone git@github.com:temper-rb/vim-plantuml-helpers.git
 ```
 
