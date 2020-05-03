@@ -1,0 +1,79 @@
+*PlantumlHelpers* Helpers for editing Plantuml files
+
+         Functionality for more efficient editing of the Plantuml files.
+
+================================================================================
+CONTENTS                                                     *PlantumlHContents*
+1. Introduction .............. |PlantumlHIntroduction|
+2. Usage ..................... |PlantumlHUsage|
+3. Mappings .................. |PlantumlHMappings|
+4. Known issues .............. |PlantumlHKnownIssues|
+5. Credits ................... |PlantumlHCredits|
+6. License ................... |PlantumlHLicense|
+
+
+================================================================================
+Introduction                                             *PlantumlHIntroduction*
+
+The Plantuml defines a language for textual specification of the UML diagrams.
+It enables for quick creation of the different kinds of UML diagrams.
+Some language constructions can be quite sophisticated and manipulation of them
+in text can be complicated. This plugin aims to ease some of the operations.
+
+================================================================================
+Usage                                                           *PlantumlHUsage*
+
+Mirror Associations                                               *:MirrorAssoc*
+
+Mirror association is an operation where the sides of the UML associations are
+swapped, but the association attributes are preserved at the association side.
+
+Consider the following example:
+
+Class1 "1" *-- "1..n" Class2
+
+It defines the composition association of the type 1 to many between the Class1
+and the Class2. When rendered by Plantuml, the Class1 will be placed on top of
+the Class2.
+Suppose now that one wants to have the Class2 be placed on top of the Class1.
+That would require the specification like so:
+
+Class2 "1..n" --* "1" Class1
+
+The Command *:MirrorAssoc* does exactly that. To mirror the association 
+place the cursor in the line where the association is defined and invoke the 
+command :MirrorAssoc.
+Invoking the :MirrorAssoc again reverses the operation.
+
+Supported association types:
+The :MirrorAssoc command supports reversing of the following associations:
+< (direction), <| (inheritance), * (composition), o (aggregation), 
+#, x, },  +, ^.
+
+================================================================================ 
+Mappings                                                     *PlantumlHMappings*
+
+Mode   key command
+n      _ma :MirrorAssoc
+
+================================================================================
+Known issues                                              *PlantumlHKnownIssues*
+
+When the association's name contains the direction character (>,<) the 
+*:MirrorAssoc* will not mirror the direction:
+
+Driver  -  Car : drives >
+
+Invoking *:MirrorAssoc* will mirrof Driver and Car classes but not the '>' at 
+the end of the association name.
+
+================================================================================
+Credits                                                       *PlantumlHCredits*
+
+This plugin is an effect of my not so long learning of Vim. It is made possible
+thanks to the great community of Vim users and experts.
+
+================================================================================
+License                                                       *PlantumlHLicense*
+
+This plugin is licenses under the terms of the MIT license
