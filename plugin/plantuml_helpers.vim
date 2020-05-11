@@ -17,7 +17,7 @@ function! s:remove_token(token)
   execute "normal! ".command
 endfunction
 
-function! s:mirror_directed_association(search_token="<", mirror_token=">", arrow_end="-\\s")
+function! s:mirror_directed_association(search_token, mirror_token, arrow_end)
   let cursorpos = getpos(".")
   call s:remove_token(a:search_token)
   call s:mirror_symmetric_assoc()
